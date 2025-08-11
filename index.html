@@ -1,0 +1,199 @@
+<!--
+  index.html – Single-page professional landing for ROGEX INDUSTRIES.
+  Structure: Header/Nav, Hero, Services, Sectors, About, Contact, Footer. Fully responsive and accessible.
+  Assumption: Using system sans-serif stack; images/logos are placeholders like {{logo.png}}.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>ROGEX INDUSTRIES – Optimization Powered by AI</title>
+  <meta name="description" content="ROGEX INDUSTRIES provides AI-powered optimization and automation for healthcare, rehab clinics, and fitness businesses." />
+  <meta name="theme-color" content="#0b1a2b" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header / Navigation -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a href="#top" class="brand" aria-label="ROGEX INDUSTRIES home">
+        <img src="{{logo.png}}" alt="ROGEX INDUSTRIES logo" class="brand__logo" />
+        <span class="brand__name">ROGEX INDUSTRIES</span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+        <span class="nav__bar"></span>
+        <span class="nav__bar"></span>
+        <span class="nav__bar"></span>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#home">Home</a></li>
+          <li><a class="nav__link" href="#services">Services</a></li>
+          <li><a class="nav__link" href="#sectors">Sectors</a></li>
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link nav__cta" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- Hero / Home Section -->
+    <section id="home" class="section hero" aria-label="Home">
+      <div class="container hero__inner reveal">
+        <div class="hero__content">
+          <h1 class="hero__title">Optimization Powered by AI</h1>
+          <p class="hero__subtitle">We help medical centers, rehabilitation clinics, and gyms streamline operations and elevate outcomes with intelligent automation.</p>
+          <div class="hero__actions">
+            <a href="#services" class="btn btn--primary">Explore Services</a>
+            <a href="#contact" class="btn btn--ghost">Get in Touch</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <div class="hero__placeholder" aria-hidden="true">Image Placeholder</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section section--alt" aria-label="Services">
+      <div class="container reveal">
+        <header class="section__header">
+          <h2 class="section__title">AI Services</h2>
+          <p class="section__subtitle">Modular solutions designed to optimize your workflows end-to-end.</p>
+        </header>
+        <div class="grid grid--cards">
+          <article class="card">
+            <h3 class="card__title">Operational Automation</h3>
+            <p class="card__text">Automate appointment routing, resource allocation, and notifications to reduce bottlenecks and no-shows.</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">Predictive Insights</h3>
+            <p class="card__text">Forecast patient flow and class demand to optimize staffing, room usage, and inventory levels.</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">Outcome Tracking</h3>
+            <p class="card__text">Measure progress with AI-assisted analytics and personalized protocols to improve satisfaction and retention.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sectors Section -->
+    <section id="sectors" class="section" aria-label="Sectors">
+      <div class="container reveal">
+        <header class="section__header">
+          <h2 class="section__title">Who We Serve</h2>
+          <p class="section__subtitle">Healthcare and wellness organizations seeking efficiency, clarity, and growth.</p>
+        </header>
+        <div class="grid grid--three">
+          <div class="sector">
+            <h3 class="sector__title">Medical Centers</h3>
+            <ul class="sector__list">
+              <li>Scheduling & triage optimization</li>
+              <li>Capacity and throughput planning</li>
+              <li>Care pathway analytics</li>
+            </ul>
+          </div>
+          <div class="sector">
+            <h3 class="sector__title">Rehabilitation Clinics</h3>
+            <ul class="sector__list">
+              <li>Protocol adherence tracking</li>
+              <li>Resource utilization insights</li>
+              <li>Outcome-based reporting</li>
+            </ul>
+          </div>
+          <div class="sector">
+            <h3 class="sector__title">Gyms & Fitness</h3>
+            <ul class="sector__list">
+              <li>Class demand forecasting</li>
+              <li>Member personalization</li>
+              <li>Churn and retention signals</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section section--alt" aria-label="About">
+      <div class="container reveal">
+        <header class="section__header">
+          <h2 class="section__title">About Us</h2>
+          <p class="section__subtitle">We combine domain expertise with practical AI to deliver measurable impact.</p>
+        </header>
+        <div class="about">
+          <div class="about__media" aria-hidden="true">
+            <div class="about__placeholder">Image Placeholder</div>
+          </div>
+          <div class="about__content">
+            <p>ROGEX INDUSTRIES builds streamlined, secure, and scalable AI solutions tailored to healthcare and wellness workflows. Our approach focuses on rapid deployment, transparent outcomes, and continuous improvement.</p>
+            <ul class="about__bullets">
+              <li>Privacy-first design with clear data boundaries.</li>
+              <li>Interoperable components that fit your stack.</li>
+              <li>Operational results you can quantify.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" aria-label="Contact">
+      <div class="container reveal">
+        <header class="section__header">
+          <h2 class="section__title">Contact</h2>
+          <p class="section__subtitle">Tell us about your goals. We’ll share a quick, clear plan.</p>
+        </header>
+        <form class="form" action="#" method="post" novalidate>
+          <div class="grid grid--two">
+            <div class="form__field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+            </div>
+            <div class="form__field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="{{info@example.com}}" required />
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="company">Organization</label>
+            <input id="company" name="company" type="text" placeholder="Your company / clinic" />
+          </div>
+          <div class="form__field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Briefly describe your needs and timeline"></textarea>
+          </div>
+          <div class="form__actions">
+            <button type="submit" class="btn btn--primary">Send Message</button>
+            <p class="form__note">We’ll respond from {{email@example.com}}. No data is stored on this demo form.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="{{logo.png}}" alt="ROGEX INDUSTRIES logo" class="brand__logo brand__logo--sm" />
+        <span class="brand__name">ROGEX INDUSTRIES</span>
+      </div>
+      <p class="footer__copy">© <span id="year"></span> ROGEX INDUSTRIES. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+/*
+  style.css – Modular, commented styles for ROGEX INDUSTRIES landing page.
+  Sections: Base/Reset, Tokens (colors, spacing, typography), Layout (container, grid), Components (header, nav, hero, cards, about, form, footer), Utilities, Responsive queries.
+  Assumptions: Dark neutral + deep blue palette, professional sans-serif stack, prefers-reduced-motion respected.
+*/
+
+/* =============================
+   1) Base / Reset
+   ============================= */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: #e7ebf1; /* light text */
+  background: #0b0f14; /* near-black */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+input, button, textarea, select { font: inherit; color: inherit; }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid #3a74ff; outline-offset: 2px; }
+
+/* Accessibility */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px; height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus { left: 16px; top: 16px; width: auto; height: auto; padding: 8px 12px; background: #0b1a2b; }
+
+/* =============================
+   2) Design Tokens
+   ============================= */
+:root {
+  --clr-bg: #0b0f14;          /* base background */
+  --clr-surface: #111822;     /* card / raised */
+  --clr-surface-alt: #0d141d; /* section alt */
+  --clr-border: #1f2a38;      /* borders */
+  --clr-text: #e7ebf1;        /* primary text */
+  --clr-text-dim: #aeb7c4;    /* secondary text */
+  --clr-accent: #0f3d8f;      /* deep blue */
+  --clr-accent-2: #1b5bd6;    /* brighter blue */
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.35);
+  --container: 1200px;
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px;  --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-7: 28px;  --space-8: 32px;
+  --space-10: 40px; --space-12: 48px; --space-16: 64px; --space-20: 80px;
+}
+
+/* =============================
+   3) Layout Utilities
+   ============================= */
+.container { width: min(100% - 32px, var(--container)); margin-inline: auto; }
+.section { padding: var(--space-20) 0; }
+.section--alt { background: var(--clr-surface-alt); }
+.section__header { margin-bottom: var(--space-12); text-align: center; }
+.section__title { font-size: clamp(1.5rem, 1.1rem + 2vw, 2.25rem); margin: 0 0 var(--space-3); }
+.section__subtitle { color: var(--clr-text-dim); margin: 0; }
+
+.grid { display: grid; gap: var(--space-6); }
+.grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); }
+.grid--cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); }
+
+/* =============================
+   4) Header & Navigation
+   ============================= */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(11, 15, 20, 0.7);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--clr-border);
+}
+.header__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--space-4) 0;
+}
+.brand { display: inline-flex; align-items: center; gap: var(--space-3); color: inherit; text-decoration: none; }
+.brand__logo { width: 36px; height: 36px; object-fit: contain; filter: brightness(1.1) contrast(1.1); }
+.brand__logo--sm { width: 28px; height: 28px; }
+.brand__name { font-weight: 700; letter-spacing: 0.2px; }
+
+/* Nav */
+.nav { display: flex; }
+.nav__list { display: flex; gap: var(--space-6); list-style: none; padding: 0; margin: 0; }
+.nav__link { color: var(--clr-text-dim); text-decoration: none; padding: 10px 0; position: relative; }
+.nav__link:hover, .nav__link:focus { color: var(--clr-text); }
+.nav__link::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: transparent; transition: background 200ms ease;
+}
+.nav__link:hover::after, .nav__link:focus::after { background: var(--clr-accent-2); }
+.nav__cta { color: var(--clr-text); }
+
+/* Mobile nav toggle */
+.nav__toggle {
+  display: none; background: transparent; border: 1px solid var(--clr-border); color: inherit;
+  border-radius: 8px; padding: 8px; cursor: pointer;
+}
+.nav__bar { display: block; width: 22px; height: 2px; background: #c9d2de; margin: 4px 0; border-radius: 1px; }
+
+/* =============================
+   5) Hero
+   ============================= */
+.hero { padding: clamp(72px, 10vw, 120px) 0 var(--space-20); background: radial-gradient(1200px 600px at 70% -10%, rgba(27, 91, 214, 0.25), transparent 60%), var(--clr-bg); }
+.hero__inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-12); align-items: center; }
+.hero__title { font-size: clamp(2rem, 1.2rem + 3vw, 3rem); line-height: 1.15; margin: 0 0 var(--space-4); }
+.hero__subtitle { color: var(--clr-text-dim); margin: 0 0 var(--space-8); max-width: 60ch; }
+.hero__actions { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+.hero__media { display: grid; place-items: center; }
+.hero__placeholder { width: 100%; aspect-ratio: 4 / 3; background: linear-gradient(135deg, #0f2138, #0b1a2b); border: 1px solid var(--clr-border); border-radius: var(--radius); box-shadow: var(--shadow-md); display: grid; place-items: center; color: #b9c3d2; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--clr-border); cursor: pointer; text-decoration: none; font-weight: 600; transition: transform 150ms ease, background 150ms ease, color 150ms ease, border-color 150ms ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn--primary { background: linear-gradient(180deg, #1b5bd6, #0f3d8f); color: white; border-color: #1b4fb3; }
+.btn--primary:hover { background: linear-gradient(180deg, #2a6df3, #11469f); }
+.btn--ghost { background: transparent; color: var(--clr-text); }
+.btn--ghost:hover { background: rgba(27, 91, 214, 0.08); border-color: #2a6df3; }
+
+/* =============================
+   6) Cards / Services
+   ============================= */
+.card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: var(--space-8); box-shadow: var(--shadow-sm); transition: transform 180ms ease, box-shadow 180ms ease; }
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.card__title { margin: 0 0 var(--space-3); font-size: 1.125rem; }
+.card__text { margin: 0; color: var(--clr-text-dim); }
+
+/* =============================
+   7) Sectors
+   ============================= */
+.sector { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: var(--space-8); }
+.sector__title { margin: 0 0 var(--space-4); }
+.sector__list { margin: 0; padding-left: 18px; color: var(--clr-text-dim); }
+
+/* =============================
+   8) About
+   ============================= */
+.about { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-12); align-items: center; }
+.about__placeholder { width: 100%; aspect-ratio: 1 / 1; background: linear-gradient(135deg, #0f2138, #0b1a2b); border: 1px solid var(--clr-border); border-radius: var(--radius); display: grid; place-items: center; color: #b9c3d2; box-shadow: var(--shadow-sm); }
+.about__bullets { margin: var(--space-6) 0 0; padding-left: 18px; color: var(--clr-text-dim); }
+
+/* =============================
+   9) Forms / Contact
+   ============================= */
+.form { display: grid; gap: var(--space-6); }
+.form__field { display: grid; gap: var(--space-2); }
+.form__field label { color: var(--clr-text); font-weight: 600; }
+.form__field input, .form__field textarea {
+  background: #0c121a; border: 1px solid var(--clr-border); color: var(--clr-text);
+  border-radius: 10px; padding: 12px 14px;
+}
+.form__field input::placeholder, .form__field textarea::placeholder { color: #7d8aa0; }
+.form__actions { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+.form__note { margin: 0; color: var(--clr-text-dim); font-size: 0.9rem; }
+
+/* =============================
+   10) Footer
+   ============================= */
+.footer { border-top: 1px solid var(--clr-border); background: #0a0d12; padding: var(--space-12) 0; }
+.footer__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
+.footer__brand { display: inline-flex; align-items: center; gap: var(--space-3); }
+.footer__copy { margin: 0; color: var(--clr-text-dim); }
+
+/* =============================
+   11) Reveal on scroll
+   ============================= */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity 500ms ease, transform 500ms ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* =============================
+   12) Responsive
+   ============================= */
+@media (max-width: 1024px) {
+  .hero__inner { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; }
+  .grid--cards, .grid--three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .nav__toggle { display: inline-block; }
+  .nav { position: fixed; inset: 64px 16px auto 16px; background: var(--clr-surface); border: 1px solid var(--clr-border);
+    border-radius: 12px; padding: 12px; box-shadow: var(--shadow-md); transform: translateY(-10px); opacity: 0; pointer-events: none; transition: opacity 200ms ease, transform 200ms ease; }
+  .nav.is-open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .nav__list { flex-direction: column; gap: 8px; }
+  .grid--two { grid-template-columns: 1fr; }
+  .grid--cards, .grid--three { grid-template-columns: 1fr; }
+}
+
+/* Motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .card, .reveal { transition: none; }
+}
