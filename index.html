@@ -3,6 +3,8 @@
   Structure: Header/Nav, Hero, Services, Sectors, About, Contact, Footer. Fully responsive and accessible.
   Assumption: Using system sans-serif stack; images/logos are placeholders like {{logo.png}}.
 -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +15,37 @@
   <meta name="description" content="ROGEX INDUSTRIES provides AI-powered optimization and automation for healthcare, rehab clinics, and fitness businesses." />
   <meta name="theme-color" content="#0b1a2b" />
 
+  <!-- Canonical -->
+  <link rel="canonical" href="https://rogexindustries.com/">
+
+  <!-- Favicon / app icons -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Social / preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ROGEX INDUSTRIES">
+  <meta property="og:url" content="https://rogexindustries.com/">
+  <meta property="og:title" content="ROGEX INDUSTRIES – Optimization Powered by AI">
+  <meta property="og:description" content="ROGEX INDUSTRIES provides AI-powered optimization and automation for healthcare, rehab clinics, and fitness businesses.">
+  <!-- <meta property="og:image" content="https://rogexindustries.com/img/og-image.png"> -->
+
+  <!-- Site name para Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ROGEX INDUSTRIES",
+    "alternateName": "ROGEX AI",
+    "url": "https://rogexindustries.com/"
+  }
+  </script>
+
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <!-- Skip link for accessibility -->
   <a class="skip-link" href="#main">Skip to content</a>
@@ -175,7 +205,7 @@
           </div>
           <div class="form__actions">
             <button type="submit" class="btn btn--primary">Send Message</button>
-            <p class="form__note">We’ll respond from {{info@rogexindustries.com}}. No data is stored on this demo form.</p>
+            <p class="form__note">We’ll respond from info@rogexindustries.com. No data is stored on this demo form.</p>
           </div>
         </form>
       </div>
